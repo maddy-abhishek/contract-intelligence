@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+pgvector  # For vector search in Postgres
+pydantic
+pydantic-settings
+python-multipart  # For file uploads
+langchain
+langchain_google_genai 
+langchain_huggingface
+pypdf  # For reading PDFs
+python-dotenv
+httpx  # For async requests
+pytest # For testing

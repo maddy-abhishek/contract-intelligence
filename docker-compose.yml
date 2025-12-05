@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code  # Syncs your local code with the container (live reload)
+    depends_on:
+      - db
+    env_file:
+      - .env
+
+  db:
+    image: pgvector/pgvector:pg16  # Special Postgres image with vector support
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=contract_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
