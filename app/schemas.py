@@ -23,3 +23,14 @@ class ContractExtraction(BaseModel):
     indemnity: Optional[str] = Field(None, description="Summary of indemnification obligations")
     liability_cap: Optional[str] = Field(None, description="Monetary cap on liability (e.g., '$1,000,000')")
     signatories: List[Signatory] = Field(default_factory=list, description="List of people who signed")
+
+# --- AUDIT SCHEMAS ---
+class Risk(BaseModel):
+    risk_type: str = Field(..., description="Category of risk (e.g., 'Liability', 'Termination')")
+    severity: str = Field(..., description="High, Medium, or Low")
+    description: str = Field(..., description="Explanation of why this is risky")
+    evidence: str = Field(..., description="Exact quote from the contract causing the risk")
+
+class AuditReport(BaseModel):
+    summary: str = Field(..., description="Overall safety score or summary")
+    risks: List[Risk]

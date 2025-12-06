@@ -6,6 +6,8 @@ from app.services.extraction import extract_contract_fields
 from pydantic import BaseModel
 from typing import List, Optional
 from app.services.rag import ask_question
+from app.schemas import ContractExtraction, AuditReport  
+from app.services.audit import audit_contract
 
 router = APIRouter()
 
@@ -45,5 +47,19 @@ async def ask_document_question(request: QuestionRequest, db: Session = Depends(
     try:
         response = ask_question(request.question, db)
         return response
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+# --- AUDIT ENDPOINT ---
+@router.post("/audit/{document_id}", response_model=AuditReport)
+async def audit_document(document_id: int, db: Session = Depends(get_db)):
+    """
+    Scans the document for high-risk clauses (Unlimited Liability, Auto-renewal, etc).
+    """
+    try:
+        report = audit_contract(document_id, db)
+        return report
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
