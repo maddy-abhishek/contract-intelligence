@@ -14,3 +14,4 @@ pypdf  # For reading PDFs
 python-dotenv
 httpx  # For async requests
 pytest # For testing
+prometheus-fastapi-instrumentator

@@ -1,0 +1,10 @@
+[
+  {
+    "question": "What is the governing law of the contract?",
+    "ground_truth": "The governing law is the State of New York."
+  },
+  {
+    "question": "What is the notice period for termination?",
+    "ground_truth": "30 days written notice is required."
+  }
+]
