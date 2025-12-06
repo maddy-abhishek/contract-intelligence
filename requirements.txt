@@ -9,6 +9,7 @@ python-multipart  # For file uploads
 langchain
 langchain_google_genai 
 langchain_huggingface
+sentence_transformers
 pypdf  # For reading PDFs
 python-dotenv
 httpx  # For async requests
