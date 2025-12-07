@@ -1,9 +1,9 @@
 # Contract Intelligence API
 
-##📖 Overview
+## 📖 Overview
 This is a "production-ish" API designed to ingest legal contracts (PDFs), extract structured data, answer questions (RAG), and audit documents for risk. It is built using FastAPI, PostgreSQL (pgvector), and Google Gemini.
 
-##🚀 Features
+## 🚀 Features
  * **Ingestion Pipeline:** Parses PDFs, chunks text, and generates vector embeddings using a local Hugging Face model (all-MiniLM-L6-v2).
 
  * **Structured Extraction:** Uses LLM Function Calling to extract parties, dates, liability caps, and terms into valid JSON.
@@ -14,7 +14,7 @@ This is a "production-ish" API designed to ingest legal contracts (PDFs), extrac
 
  * **Observability:** Includes Health checks (/healthz) and Prometheus Metrics (/metrics).
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
  * **Framework:** FastAPI (Python 3.10+)
 
  * **Database:** PostgreSQL 16 + pgvector extension
@@ -27,7 +27,8 @@ This is a "production-ish" API designed to ingest legal contracts (PDFs), extrac
 
  * **Testing:** Pytest & Custom LLM-as-a-Judge Eval script
 
-##⚡ Quick Start
+## ⚡ Quick Start
+
 **1. Prerequisites**
  * Docker & Docker Compose
 
