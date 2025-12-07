@@ -26,3 +26,13 @@ This is a "production-ish" API designed to ingest legal contracts (PDFs), extrac
  * **Infrastructure:** Docker & Docker Compose
 
  * **Testing:** Pytest & Custom LLM-as-a-Judge Eval script
+
+##⚡ Quick Start
+**1. Prerequisites**
+ * Docker & Docker Compose
+
+ * Google AI Studio API Key (Free tier available)
+
+**2. Configuration**
+
+Create a .env file in the root directory:
